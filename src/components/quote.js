@@ -3,11 +3,11 @@ import React from 'react';
 const Quote = (props) => {
 
   return (
-    <div>
+    <div className="quote-panel">
       <blockquote>
         {props.words}
       </blockquote>
-      <small>~{props.author}</small>
+      <small className="quote-author">~{props.author}</small>
     </div>
   );
 };

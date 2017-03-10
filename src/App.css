@@ -1,7 +1,33 @@
-.App {
+.app {
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
+
 }
 
-.App-intro {
-  font-size: large;
+.quote-panel {
+  display: flex;
+  flex-direction: column;
+  border: 5px solid lightsteelblue;
+  border-radius: 8px;
+  padding: 20px 30px;
+  margin: 30px 100px;
+}
+
+.quote-panel blockquote {
+  font-family: 'Tangerine', cursive;
+  font-weight: bold;
+  font-size: 4em;
+  margin: 20px 40px;
+}
+
+.quote-author {
+  font-family: 'Rancho', cursive;
+  font-size: 1.5em;
+}
+
+.quote-panel-control {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 100px;
 }
