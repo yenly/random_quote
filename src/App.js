@@ -23,11 +23,11 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.quotes)
     return (
       <div className="App">
-        <Quote />
-        {this.state.quotes.quote} {this.state.quotes.author}
+        <Quote
+          words={this.state.quotes.quote}
+          author={this.state.quotes.author} />
       </div>
     );
   }
