@@ -8,7 +8,7 @@ class App extends Component {
     super();
     this.state = {
       quotes: {},
-      quoteID: 15,
+      quoteID: 1,
       quoteHistory: []
     };
   }
@@ -28,6 +28,8 @@ class App extends Component {
   }
 
   render() {
+    const tweetText = `http://twitter.com/home?status=\"${this.state.quotes.quote}\" by ${this.state.quotes.author}`;
+
     return (
       <div className="app">
         <h1>Random Quote Machine</h1>
@@ -36,7 +38,7 @@ class App extends Component {
           words={this.state.quotes.quote}
           author={this.state.quotes.author} />
         <div className="quote-panel-control">
-          <a href=""><i class="fa fa-twitter fa-2x" aria-hidden="true"></i> Tweet this</a>
+          <a href={tweetText}><i className="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
           <button>New Quote</button>
         </div>
 
