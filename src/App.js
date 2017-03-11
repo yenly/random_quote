@@ -8,13 +8,13 @@ class App extends Component {
     super();
     this.state = {
       quotes: {},
-      quoteID: this.getRandomInt(16),
       quote: {},
       quoteHistory: []
     };
   }
 
   componentDidMount() {
+
     const rootRef = firebase.database().ref().child('quotes');
     // const quotesRef = rootRef.child(this.state.quoteID);
     rootRef.on('value', snap => {
@@ -33,11 +33,25 @@ class App extends Component {
     const newQuoteId = this.getRandomInt(this.state.quotes.length);
     this.setState({
       quoteID: newQuoteId,
+      quoteLen: this.state.quotes.length
+    });
+    this.setState({
       quote: this.state.quotes[this.state.quoteID]
+    });
+    this.addToQuoteHistory(this.state.quoteID);
+  }
+
+  addToQuoteHistory(num) {
+    let newArray = this.state.quoteHistory.slice();
+    newArray.push(num);
+    this.setState({
+      quoteHistory: newArray
     });
   }
 
   render() {
+    console.log("after", this.state.quoteHistory, this.state.quoteLen);
+
     const tweetText = `http://twitter.com/home?status=${this.state.quote.quote} by ${this.state.quote.author}`;
 
     return (
