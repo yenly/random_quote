@@ -1,6 +1,8 @@
 .app {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+  display: flex;
+  align-self: stretch;
 }
 
 .app h1 {
@@ -14,7 +16,7 @@
   border: 5px solid lightsteelblue;
   border-radius: 8px;
   padding: 20px 30px;
-  margin: 30px 100px;
+  margin: 30px 100px 10px 100px;
 }
 
 .quote-panel blockquote {

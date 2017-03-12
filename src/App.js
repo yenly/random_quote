@@ -8,6 +8,7 @@ class App extends Component {
     super();
     this.state = {
       quotes: {},
+      quoteID: 0,
       quote: {},
       quoteHistory: []
     };
@@ -18,12 +19,11 @@ class App extends Component {
   componentDidMount() {
 
     const rootRef = firebase.database().ref().child('quotes');
-    // const quotesRef = rootRef.child(this.state.quoteID);
     rootRef.on('value', snap => {
       this.setState({
         quotes: snap.val(),
       });
-      this.getQuote();
+      this.getQuoteId();
     });
   }
 
@@ -31,24 +31,21 @@ class App extends Component {
     return Math.floor(Math.random() * (max));
   }
 
-  getQuote() {
+  getQuoteId() {
     let newQuoteId = this.getRandomInt(this.state.quotes.length);
-    // if(!this.state.quoteHistory.includes(newQuoteId)) {
-    //   console.log(this.state.quoteHistory, newQuoteId, "add" )
-    // }
     if (newQuoteId !== this.state.quoteID) {
-      this.setState({
-        quoteID: newQuoteId,
-        quoteLen: this.state.quotes.length
-      });
-      this.setState({
-        quote: this.state.quotes[this.state.quoteID]
-      });
-      // this.addToQuoteHistory(this.state.quoteID);
+      // console.log("newQuoteId: ", newQuoteId);
+      this.setQuote(newQuoteId);
+      // this.addToQuoteHistory(newQuoteId);
     } else {
-      newQuoteId = this.getRandomInt(this.state.quotes.length);
-      console.log("Same quote ID as current!");
+      this.getQuoteId();
     }
+  }
+
+  setQuote(quoteId) {
+    this.setState({
+      quote: this.state.quotes[quoteId]
+    });
   }
 
   // addToQuoteHistory(num) {
@@ -57,11 +54,12 @@ class App extends Component {
   //   this.setState({
   //     quoteHistory: newArray
   //   });
+  //   console.log(this.state.quoteHistory);
   // }
 
   onFormSubmit(event) {
     event.preventDefault();
-    this.getQuote();
+    this.getQuoteId();
   }
 
   render() {
@@ -72,7 +70,7 @@ class App extends Component {
     return (
       <div className="app">
         <form onSubmit={this.onFormSubmit}>
-          <h1>Random Quote Machine</h1>
+          <h1>Random Quote</h1>
           <p className="app-intro">Here's a random quote from my favorites collection. I hope you find it as thought provoking as I do.</p>
           <Quote
             words={this.state.quote.quote}
