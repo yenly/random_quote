@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Quote = (props) => {
+const Quote = ({words, author}) => {
 
   return (
     <div className="quote-panel">
       <blockquote>
-        {props.words}
+        {words}
       </blockquote>
-      <small className="quote-author">~{props.author}</small>
+      <small className="quote-author">~{author}</small>
     </div>
   );
 };
