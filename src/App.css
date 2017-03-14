@@ -1,35 +1,59 @@
+body {
+  background: url('./images/baliboats.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .app {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
-  display: flex;
-  align-self: stretch;
 }
 
 .app h1 {
   font-family: 'Audiowide', cursive;
-  font-size: 3em;
+  color: white;
+
 }
 
+.app .jumbotron {
+  background-color: white;
+  opacity: 0.5;
+}
+
+.app .quote-panel blockquote {
+  font-family: 'Tangerine', cursive;
+  font-weight: bold;
+  font-size: 2em;
+  border: 0;
+}
+
+.app .quote-author {
+  font-family: 'Rancho', cursive;
+}
+/*
 .quote-panel {
   display: flex;
   flex-direction: column;
-  border: 5px solid lightsteelblue;
   border-radius: 8px;
   padding: 20px 30px;
   margin: 30px 100px 10px 100px;
+  background-color: white;
+  opacity: 0.5;
 }
 
 .quote-panel blockquote {
   font-family: 'Tangerine', cursive;
   font-weight: bold;
-  font-size: 4em;
+  font-size: 3em;
   margin: 20px 40
 }
 
 .quote-author {
   font-family: 'Rancho', cursive;
   font-size: 1.5em;
-}
+}*/
 
 .quote-panel-control {
   display: flex;

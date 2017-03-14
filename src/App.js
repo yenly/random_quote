@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Quote from './components/quote';
 import * as firebase from 'firebase';
+// import bkgd_image from './images/baliboats.jpg';
+import { Jumbotron, Button } from 'react-bootstrap';
 
 class App extends Component {
   constructor() {
@@ -71,13 +73,21 @@ class App extends Component {
       <div className="app">
         <form onSubmit={this.onFormSubmit}>
           <h1>Random Quote</h1>
-          <p className="app-intro">Here's a random quote from my favorites collection. I hope you find it as thought provoking as I do.</p>
-          <Quote
+          {/* <p className="app-intro">Here's a random quote from my favorites collection. I hope you find it as thought provoking as I do.</p> */}
+          <Jumbotron>
+            <Quote
+              words={this.state.quote.quote}
+              author={this.state.quote.author} />
+          </Jumbotron>
+          {/* <Quote
             words={this.state.quote.quote}
-            author={this.state.quote.author} />
+            author={this.state.quote.author} /> */}
           <div className="quote-panel-control">
-            <a href={tweetText}><i className="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
-            <button type="submit">New Quote</button>
+            <a href={tweetText} target="_blank"><i className="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+            {/* <button type="submit">New Quote</button> */}
+            <Button bsStyle="default" type="submit">
+              New Quote
+            </Button>
           </div>
         </form>
       </div>
