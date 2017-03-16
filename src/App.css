@@ -45,6 +45,10 @@ body {
   margin: 0;
 }
 
+.app .fa-twitter {
+  text-shadow: 3px 0px 8px #ffffff;
+}
+
 @media only screen and (min-width: 768px) {
   /* For desktop: */
   .app .quote-panel blockquote {
