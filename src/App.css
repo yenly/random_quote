@@ -19,7 +19,7 @@ body {
 
 .app .jumbotron {
   background-color: white;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .app .quote-panel blockquote {
@@ -31,6 +31,8 @@ body {
 
 .app .quote-author {
   font-family: 'Rancho', cursive;
+  font-size: 1.2em;
+  letter-spacing: 1px;
 }
 /*
 .quote-panel {
@@ -60,5 +62,16 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 0 100px;
+  margin: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .app .quote-panel blockquote {
+    font-size: 4em;
+  }
+
+  .app .quote-author {
+    font-size: 2em;
+  }
 }
