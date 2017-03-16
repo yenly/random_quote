@@ -20,6 +20,8 @@ body {
 .app .jumbotron {
   background-color: white;
   opacity: 0.7;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .app .quote-panel blockquote {
@@ -34,28 +36,6 @@ body {
   font-size: 1.2em;
   letter-spacing: 1px;
 }
-/*
-.quote-panel {
-  display: flex;
-  flex-direction: column;
-  border-radius: 8px;
-  padding: 20px 30px;
-  margin: 30px 100px 10px 100px;
-  background-color: white;
-  opacity: 0.5;
-}
-
-.quote-panel blockquote {
-  font-family: 'Tangerine', cursive;
-  font-weight: bold;
-  font-size: 3em;
-  margin: 20px 40
-}
-
-.quote-author {
-  font-family: 'Rancho', cursive;
-  font-size: 1.5em;
-}*/
 
 .quote-panel-control {
   display: flex;

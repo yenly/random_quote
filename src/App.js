@@ -3,7 +3,8 @@ import './App.css';
 import Quote from './components/quote';
 import * as firebase from 'firebase';
 // import bkgd_image from './images/baliboats.jpg';
-import { Jumbotron, Button } from 'react-bootstrap';
+import { Jumbotron, Button, Modal } from 'react-bootstrap';
+
 
 class App extends Component {
   constructor() {
@@ -12,10 +13,13 @@ class App extends Component {
       quotes: {},
       quoteID: 0,
       quote: {},
-      quoteHistory: []
+      quoteHistory: [],
+      showModal: false
     };
 
     this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.close = this.close.bind(this);
+    this.open = this.open.bind(this);
   }
 
   componentDidMount() {
@@ -64,6 +68,14 @@ class App extends Component {
     this.getQuoteId();
   }
 
+  close() {
+    this.setState({ showModal: false });
+  }
+
+  open() {
+    this.setState({ showModal: true });
+  }
+
   render() {
     // console.log("inside render", this.state.quoteHistory);
 
@@ -74,22 +86,34 @@ class App extends Component {
         <form onSubmit={this.onFormSubmit}>
           <h1>Random Quote</h1>
           {/* <p className="app-intro">Here's a random quote from my favorites collection. I hope you find it as thought provoking as I do.</p> */}
+
           <Jumbotron>
             <Quote
               words={this.state.quote.quote}
               author={this.state.quote.author} />
           </Jumbotron>
-          {/* <Quote
-            words={this.state.quote.quote}
-            author={this.state.quote.author} /> */}
+
           <div className="quote-panel-control">
-            <a href={tweetText} target="_blank"><i className="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+            {/* <a href={tweetText} target="_blank"><i className="fa fa-twitter fa-2x" aria-hidden="true"></i></a> */}
             {/* <button type="submit">New Quote</button> */}
+            <Button onClick={this.open}><i className="fa fa-twitter fa-lg" aria-hidden="true"></i></Button>
             <Button bsStyle="default" type="submit">
               New Quote
             </Button>
           </div>
         </form>
+
+        <Modal show={this.state.showModal} onHide={this.close} >
+          <Modal.Header closeButton>
+            <Modal.Title>Tweet This Quote</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>{tweetText}</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.close}>Close</Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     );
   }
